@@ -1,0 +1,22 @@
+.listBox {
+  padding-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.itemBox {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 8px;
+  text-align: center;
+}
+
+.online {
+  color: green;
+}
+
+.offline {
+  color: red;
+}

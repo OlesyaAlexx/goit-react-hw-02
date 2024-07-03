@@ -1,0 +1,53 @@
+.container {
+  border: 3px solid black;
+  border-radius: 10px;
+  margin: 0 auto;
+  width: 300px;
+}
+
+.photoBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.avatar {
+  height: 120px;
+  background: gray;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.title {
+  font-weight: 700;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  font-size: large;
+}
+
+.details {
+  font-weight: 400px;
+  color: grey;
+}
+
+.stats {
+  display: flex;
+}
+
+.statsItem {
+  background-color: rgb(210, 210, 210);
+  width: calc(100% / 3);
+  border: 0.5px solid grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding: 4px;
+}
+
+.quantity {
+  font-weight: 700;
+}
