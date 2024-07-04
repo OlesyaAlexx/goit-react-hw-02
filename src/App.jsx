@@ -1,7 +1,6 @@
 //Імпортуємо файли з папки components та data в Арр.jsx
 
 import Description from "./components/Description/Description";
-
 import "./App.css";
 import { useEffect, useState } from "react";
 import Options from "./components/Options/Options";
