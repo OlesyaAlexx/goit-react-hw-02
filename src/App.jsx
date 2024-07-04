@@ -3,20 +3,27 @@
 import Description from "./components/Description/Description";
 
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Options from "./components/Options/Options";
 import Feedback from "./components/Feedback/Feedback";
 import Notification from "./components/Notification/Notification";
 
-//Створюємо розмітку елементів
+// Створюємо головний компонент App
 
 const App = () => {
-  const [feedback, setFeedback] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
+  // Використовуємо useState для створення стану збережених відгуків
+  // Початкове значення зчитується з  або дорівнює нулям
+  const [feedback, setFeedback] = useState(() => {
+    const savedData = JSON.parse(window.localStorage.getItem("feedbackKey"));
+    return savedData || { good: 0, neutral: 0, bad: 0 };
   });
 
+  // Використовуємо useEffect для збереження стану у localStorage при зміні
+  useEffect(() => {
+    window.localStorage.setItem("feedbackKey", JSON.stringify(feedback));
+  }, [feedback]);
+
+  // Функція для оновлення відгуків при натисканні на кнопоку
   const updateFeedback = (feedbackType) => {
     setFeedback((prevFeedback) => ({
       ...prevFeedback,
@@ -24,6 +31,7 @@ const App = () => {
     }));
   };
 
+  // Функція для скидання відгуків до початкового стану
   const resetFeedback = () => {
     setFeedback({
       good: 0,
@@ -31,8 +39,15 @@ const App = () => {
       bad: 0,
     });
   };
+
+  // Обчислюємо загальну кількість відгуків
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
-  const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
+
+  // Обчислюємо відсоток позитивних відгуків
+  const positiveFeedback =
+    totalFeedback > 0 ? Math.round((feedback.good / totalFeedback) * 100) : 0;
+
+  //Створюємо розмітку елементів
   return (
     <>
       <Description />

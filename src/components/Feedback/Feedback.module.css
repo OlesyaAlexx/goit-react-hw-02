@@ -1,23 +1,13 @@
-/* .listBox {
-  padding-top: 40px;
+.list {
+  padding: 10px;
+  margin-left: 10px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.itemBox {
-  border: 2px solid black;
-  border-radius: 10px;
-  padding: 8px;
-  text-align: center;
+.item {
+  font-size: larger;
+  text-align: start;
+  text-shadow: 1px 0px 1px rgb(201, 195, 195);
 }
-
-.online {
-  color: green;
-}
-
-.offline {
-  color: red;
-}
- */
